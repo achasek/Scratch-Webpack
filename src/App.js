@@ -5,7 +5,7 @@ import React from 'react' // we need this now also in component files
 // we need to define a Loader in the webpack.config.js to handle this
 const App = () => {
   return (
-    <div>
+    <div className='container'>
       hello from-scratch webpack
     </div>
   )
