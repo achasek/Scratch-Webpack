@@ -2,6 +2,16 @@ import React, { useState, useEffect } from 'react' // we need this now also in c
 import axios from 'axios'
 import './index.css'
 
+// Adds Internet Explorer compatibility by this.
+// if window object, meaning the current browser being used to view our app,
+// does not have the Promise method defined, which IE does not, then use Polyfill library to assist in compatibilty
+// Remember: Axios library utilizes promises, hence this issue
+import PromisePolyfill from 'promise-polyfill'
+
+if (!window.Promise) {
+  window.Promise = PromisePolyfill
+}
+
 const useNotes = (url) => {
   const [notes, setNotes] = useState([])
   useEffect(() => {
